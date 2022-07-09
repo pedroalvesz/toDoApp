@@ -9,15 +9,31 @@ export function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
   function handleAddTask(newTaskTitle: string) {
-    //TODO - add new task
+    const tarefa = {
+      id: new Date().getTime(),
+      title: newTaskTitle,
+      done: false,
+    }
+    setTasks([...tasks, tarefa])
   }
 
   function handleToggleTaskDone(id: number) {
-    //TODO - toggle task done if exists
+    const updatedTasks = tasks.map(task => ({ ...task }));
+
+    const markedTasks = updatedTasks.find( item => item.id === id);
+
+    if(!markedTasks)
+    return;
+
+    markedTasks.done = !markedTasks.done;
+    setTasks(updatedTasks)
   }
 
   function handleRemoveTask(id: number) {
-    //TODO - remove task from state
+    //os elementos que eu vou retornar no estado / renderizar na tela são os que forem diferentes desse id
+    setTasks(tasks.filter(
+      tarefa => tarefa.id !== id
+    ))
   }
 
   return (
