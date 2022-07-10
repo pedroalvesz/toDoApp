@@ -14,7 +14,13 @@ export function Home() {
       title: newTaskTitle,
       done: false,
     }
-    setTasks([...tasks, tarefa])
+
+    // verificar se o newTaskTitle é igual a algum tarefa.title dentro do estado no momento = task
+    if(tasks.find(item => item.title === newTaskTitle)) {
+
+    }else {
+      setTasks([...tasks, tarefa])
+    }
   }
 
   function handleToggleTaskDone(id: number) {
