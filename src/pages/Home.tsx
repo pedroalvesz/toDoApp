@@ -5,6 +5,18 @@ import { Header } from '../components/Header';
 import { Task, TasksList } from '../components/TasksList';
 import { TodoInput } from '../components/TodoInput';
 
+
+export interface EditTextArgs {
+  taskId: number;
+  taskNewTitle: string;
+}
+
+// mesma funcionalidade que a interface
+//type EditTextArgs {
+// taskId: number;
+// taskNewTitle: string;
+//}
+
 export function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
@@ -17,21 +29,40 @@ export function Home() {
 
     // verificar se o newTaskTitle é igual a algum tarefa.title dentro do estado no momento = task
     if(tasks.find(item => item.title === newTaskTitle)) {
-
     }else {
       setTasks([...tasks, tarefa])
     }
   }
 
   function handleToggleTaskDone(id: number) {
+
+    // Lógica de desestruturar o array para poder manipular ele sem quebrar a imutabilidade do react
     const updatedTasks = tasks.map(task => ({ ...task }));
 
-    const markedTasks = updatedTasks.find( item => item.id === id);
+    const taskToBeMarkedAsDone = updatedTasks.find( item => item.id === id);
 
-    if(!markedTasks)
+    if(!taskToBeMarkedAsDone)
     return;
 
-    markedTasks.done = !markedTasks.done;
+    taskToBeMarkedAsDone.done = !taskToBeMarkedAsDone.done;
+    setTasks(updatedTasks)
+  }
+
+  //importar um objeto com nome EditTextArgs
+  function handleEditTask({taskNewTitle, taskId} : EditTextArgs) {
+    //Desestruturo o array
+    //Procuro nele alguma task com o mesmo id que eu to passando,
+    //Se não for undefined( se ele achar )
+    //modifica o tasktobeupdated para o novo nome e adiciona ao estado
+    const updatedTasks = tasks.map(task => ({ ...task }))
+
+    const taskToBeUpdated = updatedTasks.find(item => item.id === taskId)
+
+    if(!taskToBeUpdated)
+    return;
+
+    taskToBeUpdated.title = taskNewTitle
+
     setTasks(updatedTasks)
   }
 
@@ -52,6 +83,7 @@ export function Home() {
         tasks={tasks} 
         toggleTaskDone={handleToggleTaskDone}
         removeTask={handleRemoveTask} 
+        editTask={handleEditTask}
       />
     </View>
   )
