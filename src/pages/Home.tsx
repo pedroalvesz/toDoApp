@@ -11,12 +11,6 @@ export interface EditTextArgs {
   taskNewTitle: string;
 }
 
-// mesma funcionalidade que a interface
-//type EditTextArgs {
-// taskId: number;
-// taskNewTitle: string;
-//}
-
 export function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
 
@@ -27,19 +21,16 @@ export function Home() {
       done: false,
     }
 
-    // verificar se o newTaskTitle é igual a algum tarefa.title dentro do estado no momento = task
     if(tasks.find(item => item.title === newTaskTitle)) {
       Alert.alert(
-        'Task já cadastrada',
-        'Você não pode cadastrar uma task com o mesmo nome')
+        'Hey There 👋',
+        'You already have a task with this name.')
     }else {
       setTasks([...tasks, tarefa])
     }
   }
 
   function handleToggleTaskDone(id: number) {
-
-    // Lógica de desestruturar o array para poder manipular ele sem quebrar a imutabilidade do react
     const updatedTasks = tasks.map(task => ({ ...task }));
 
     const taskToBeMarkedAsDone = updatedTasks.find( item => item.id === id);
@@ -51,12 +42,8 @@ export function Home() {
     setTasks(updatedTasks)
   }
 
-  //importar um objeto com nome EditTextArgs
+
   function handleEditTask({taskNewTitle, taskId} : EditTextArgs) {
-    //Desestruturo o array
-    //Procuro nele alguma task com o mesmo id que eu to passando,
-    //Se não for undefined( se ele achar )
-    //modifica o tasktobeupdated para o novo nome e adiciona ao estado
     const updatedTasks = tasks.map(task => ({ ...task }))
 
     const taskToBeUpdated = updatedTasks.find(item => item.id === taskId)
@@ -70,10 +57,9 @@ export function Home() {
   }
 
   function handleRemoveTask(id: number) {
-    //os elementos que eu vou retornar no estado / renderizar na tela são os que forem diferentes desse id
     Alert.alert(
-      "Remover item",
-      "Tem certeza que você deseja remover esse item?",
+      "Remove Task",
+      "Are you sure about removing this task?",
       [
         {
           text: "No",

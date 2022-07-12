@@ -61,7 +61,6 @@ export function TaskItem({task, toggleTaskDone, removeTask, editTask} : TasksLis
           onPress= {() => toggleTaskDone(task.id)}
         >
           <View
-            // ? : se item.done for true aplica done, se for false aplica marker
             style={task.done ? styles.taskMarkerDone : styles.taskMarker} 
           >
             { task.done && (
@@ -77,7 +76,6 @@ export function TaskItem({task, toggleTaskDone, removeTask, editTask} : TasksLis
           style={task.done ? styles.taskTextDone : styles.taskText}
           value={saveEditedText}
           onChangeText={setSaveEditedText}
-          //Quando ele irá aceitar edições, somente no isEditing, não importa se a caixa do text input for clicada
           editable={isEditing}
           onSubmitEditing={HandleSubmitEditing}
           ref={textInputRef}

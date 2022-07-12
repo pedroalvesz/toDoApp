@@ -9,11 +9,11 @@ interface HeaderProps {
 }
 
 export function Header({ tasksCounter }: HeaderProps) {
-  let tasksCounterText = 'tarefa' || 'tarefas'; 
+  let tasksCounterText = 'pending task' || 'pending tasks'; 
   if (tasksCounter === 1) {
-    tasksCounterText = 'tarefa'
+    tasksCounterText = 'pending task'
   }else {
-    tasksCounterText = 'tarefas'
+    tasksCounterText = 'pending tasks'
   }
   
   return (
@@ -21,7 +21,7 @@ export function Header({ tasksCounter }: HeaderProps) {
       <Image source={logoImg} />
       
       <View style={styles.tasks}>
-        <Text style={styles.tasksCounter}>Você tem </Text>
+        <Text style={styles.tasksCounter}>Hou have </Text>
         { <Text style={styles.tasksCounterBold}>{tasksCounter} {tasksCounterText}</Text> }
       </View>
     </View>
