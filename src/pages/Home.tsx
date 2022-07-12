@@ -29,6 +29,9 @@ export function Home() {
 
     // verificar se o newTaskTitle é igual a algum tarefa.title dentro do estado no momento = task
     if(tasks.find(item => item.title === newTaskTitle)) {
+      Alert.alert(
+        'Task já cadastrada',
+        'Você não pode cadastrar uma task com o mesmo nome')
     }else {
       setTasks([...tasks, tarefa])
     }
