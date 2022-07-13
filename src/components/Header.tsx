@@ -12,7 +12,8 @@ export function Header({ tasksCounter }: HeaderProps) {
   let tasksCounterText = 'pending task' || 'pending tasks'; 
   if (tasksCounter === 1) {
     tasksCounterText = 'pending task'
-  }else {
+  }
+  else {
     tasksCounterText = 'pending tasks'
   }
   
