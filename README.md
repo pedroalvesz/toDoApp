@@ -6,11 +6,16 @@
  ⚡ PROJECT SHOWCASE
 </h2>
   <div width="100%" overflow="hidden" align="center">
-  <img src="toDoApp/todoApp.gif" width="50%" />
+  <img src="todoApp.gif" width="50%" />
   </div>
-  <h3 align="center">
- ⚠️ Android Platform used only for illustration, application works on both Android and iOs devices.
-  </h3>
+  <p align="center" width="30%">
+ ⚠️ Android Platform used only for illustration,
+  </p>
+  <p align="center" width="30%">
+    application works on both Android and iOs devices.
+  </p>
+  
+   
   <br>
 
 ## 🚀 Used Technologies
