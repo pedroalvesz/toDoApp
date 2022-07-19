@@ -1,4 +1,3 @@
-# react-mySkillsApp
     ##   Hello World 👋 I´m Pedro , a Software Engineer Student
 
 
