@@ -60,9 +60,7 @@ export function TaskItem({task, toggleTaskDone, removeTask, editTask} : TasksLis
           style={styles.taskButton}
           onPress= {() => toggleTaskDone(task.id)}
         >
-          <View
-            style={task.done ? styles.taskMarkerDone : styles.taskMarker} 
-          >
+          <View style={task.done ? styles.taskMarkerDone : styles.taskMarker} >
             { task.done && (
               <Icon 
                 name="check"
