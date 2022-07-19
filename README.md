@@ -11,7 +11,7 @@
  ⚠️ Android Platform used only for illustration,
   </p>
   <p align="center" width="30%">
-    application works on both Android and iOs devices.
+    application works on both Android and iOS devices.
   </p>
   
    
